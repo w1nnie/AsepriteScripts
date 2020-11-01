@@ -2,7 +2,7 @@
 
 ## Install
 
-1. <span><a href="https://github.com/w1nnie/AsepriteScripts/releases/tag/v0.0.1" target="_blank">こちら</a></span>から"AsepriteScripts.aseprite-extension"をクリックしダウンロードします。
+1. <span><a href="https://github.com/w1nnie/AsepriteScripts/releases" target="_blank">こちら</a></span>から"AsepriteScripts.aseprite-extension"をクリックしダウンロードします。
 2. Asepriteが起動し拡張機能のポップアップが表示されたら、"install"を選択します。
 
 ## Usage
