@@ -11,21 +11,26 @@ if not cel then
 	return app.alert("There is no active image")
 end
 
-local img = cel.image:clone()
+function makeSelectionFromLayer()
 
+    local cel = app.activeCel
+    local img = cel.image:clone()
+    local transparent = img.spec.transparentColor
 
+    local selection = Selection()
 
-local transparent = img.spec.transparentColor
-local selection = Selection()
-
-for it in img:pixels() do
-    if it() ~= transparent then
-        selection:add(it.x, it.y, 1, 1)
+    for it in img:pixels() do
+        if it() ~= transparent then
+            selection:add(it.x, it.y, 1, 1)
+        end
     end
+    selection.origin = Point(cel.bounds.x, cel.bounds.y)
+
+    sprite.selection:add(selection)
 end
 
-sprite.selection = selection
-	
+makeSelectionFromLayer()
+print(app.activeLayer)
 
-cel.image = img
+
 app.refresh()
