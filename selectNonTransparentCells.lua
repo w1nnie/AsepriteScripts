@@ -6,14 +6,11 @@ if not sprite then
 	return app.alert("There is no active sprite")
 end
 
-local cel = app.activeCel
-if not cel then	
-	return app.alert("There is no active image")
-end
+sprite.selection = Selection()
 
-function makeSelectionFromLayer()
+function makeSelectionFromLayer(layer)
 
-    local cel = app.activeCel
+    local cel = layer:cel(app.activeFrame)
     local img = cel.image:clone()
     local transparent = img.spec.transparentColor
 
@@ -29,8 +26,21 @@ function makeSelectionFromLayer()
     sprite.selection:add(selection)
 end
 
-makeSelectionFromLayer()
-print(app.activeLayer)
+function recursiveSelect(layer)
+    if layer.isVisible then
+        if layer.isGroup then
+            for index, it in ipairs(layer.layers) do
+                if it:cel(app.activeFrame) ~= nil then
+                    recursiveSelect(it)
+                end
+            end
+        else
+            makeSelectionFromLayer(layer)
+        end
+    end
+end
 
+layer = app.activeLayer
+recursiveSelect(layer)
 
 app.refresh()
