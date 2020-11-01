@@ -11,6 +11,9 @@ sprite.selection = Selection()
 function makeSelectionFromLayer(layer)
 
     local cel = layer:cel(app.activeFrame)
+    if cel == nil then
+        return
+    end
     local img = cel.image:clone()
     local transparent = img.spec.transparentColor
 
