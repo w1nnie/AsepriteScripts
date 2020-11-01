@@ -2,9 +2,9 @@
 
 local sprite = app.activeSprite
 
-if not sprite then 
-	return app.alert("There is no active sprite")
-end
+-- if not sprite then 
+-- 	return app.alert("There is no active sprite")
+-- end
 
 sprite.selection = Selection()
 
