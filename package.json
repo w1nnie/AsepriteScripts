@@ -2,7 +2,7 @@
     "name": "select-nontransparent-cells",
     "displayName": "select-nontransparent-cells",
     "description": "selects nontransparent cells from active layer",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": {
         "name": "shironegi",
         "url": "https://github.com/w1nnie"
